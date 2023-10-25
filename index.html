@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Phone</title>
+    <link rel="stylesheet" href="./phone.css">
+</head>
+<body>
+    <section id="cards">
+        <div>
+            <select name="network" id="network">
+            <option id="mtn" value="MTN">MTN</option>
+            <option id="glo" value="GLO">GLO</option>
+            <option id="airtel" value="AIRTEL">AIRTEL</option>
+        </select>
+        <input id="amount" type="number" placeholder="enter the amount">
+        <input id="number" type="number" placeholder="enter the number of card">
+        </div>
+        <div>
+            <button id="btn1" onclick="createCard()">CREATE CARD</button>
+            <button id="btn2" onclick="displayCard()">DISPLAY CARD</button>
+            <button id="btn3" onclick="hideCard()">HIDE CARD</button>
+        </div>
+        <div id="result">
+
+        </div>
+    </section>
+<section id="phone">
+    <select name="netw" id="netw">
+        <option value="MTN" name="netw">MTN</option>
+        <option value="GLO" name="netw">GLO</option>
+        <option value="AIRTEL" name="netw">AIRTEL</option>
+    </select>
+    <input type="number" id="refnumber" placeholder="enter reference number">
+    <input type="submit" onclick="submit()">
+<div id="phoneResult"></div>
+</section>
+
+    <script type="text/javascript" src="./phone.js">
+
+    </script>
+</body>
+</html>

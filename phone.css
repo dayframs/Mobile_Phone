@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+}
+
+#cards {
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px 20px;
+    gap: 10px;
+    background-color: rgb(194, 245, 228, 0.3);
+}
+select, input, button {
+    height: 40px;
+    padding: 0 10px;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid grey;
+}
+input::placeholder {
+    color: rgb(182, 178, 178, 0.7);
+    text-align: left;
+}
+button {
+    border: none;
+    transition: all 0.15s;
+}
+button:hover {
+    opacity: 0.7;
+}
+button:active {
+    scale: 1.2;
+}
+#btn1 {
+    background-color: aquamarine;
+    color: white;
+}
+#btn2 {
+    background-color: grey;
+    color: white;
+}
+#btn3 {
+    background-color: BLUE;
+    color: white;
+}
+
+#phone {
+        margin: auto;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:flex-start;
+        gap: 10px;
+}
