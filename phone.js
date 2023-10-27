@@ -35,11 +35,26 @@ function createCard() {
           result.innerHTML = '';
           for (let i = 0; i < z.length; i++) {
                sn = eval(i + 1);
-               result.innerHTML += (sn + ' ' + z[i].network + ' ' + z[i].amount + ' ' + z[i].refNum + '<br>');
+               result.innerHTML += sn + ' ' + z[i].network + ' ' + z[i].amount + ' ' + z[i].refNum + '<br>';
                console.log(result.innerHTML);
           }
      }
 
 function hideCard() {
      result.innerHTML = '';
+}
+     
+function submit() {
+     let y = localStorage.getItem("myData");
+     let z = JSON.parse(y);
+     result.innerHTML = '';
+     for (let i = 0; i < z.length; i++) {
+          if (netw.value == z[i].network && refnumber.value == z[i].refNum) {
+               phoneResult.innerHTML = 'transaction successful' + '<br>' + 'your account balance is ' + z[i].amount;
+               z[i].used = true;
+               break;
+          } else {
+               phoneResult.innerHTML = 'INVALID CARD';
+          }
      }
+}

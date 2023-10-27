@@ -64,3 +64,16 @@ button:active {
         align-items:flex-start;
         gap: 10px;
 }
+#subm {
+    background-color: gold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+#subm:hover {
+    opacity: 0.7;
+}
+#subm:active {
+    transform: scaleX(1.2);
+}
