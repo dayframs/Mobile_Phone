@@ -5,9 +5,13 @@ let l;
 let q;
 let disp;
 let ref;
+// localStorage.balance = 0;
+
+
  let re = result.innerHTML;
 
 let val = JSON.parse(localStorage.getItem('myData')) || [];
+
 
 function createCard() {
      let n = network.value;
@@ -25,18 +29,17 @@ function createCard() {
           localStorage.myData = JSON.stringify(val);
           amount.value = '';
           number.value = '';
-          console.log(localStorage.myData);
+          // console.log(localStorage.myData);
      }
 }
 
      function displayCard() {
           let y = localStorage.getItem("myData");
-          let z = JSON.parse(y);
+          z = JSON.parse(y);
           result.innerHTML = '';
           for (let i = 0; i < z.length; i++) {
                sn = eval(i + 1);
                result.innerHTML += sn + ' ' + z[i].network + ' ' + z[i].amount + ' ' + z[i].refNum + '<br>';
-               console.log(result.innerHTML);
           }
      }
 
@@ -47,11 +50,15 @@ function hideCard() {
 function submit() {
      let y = localStorage.getItem("myData");
      let z = JSON.parse(y);
+     
      result.innerHTML = '';
      for (let i = 0; i < z.length; i++) {
           if (netw.value == z[i].network && refnumber.value == z[i].refNum) {
-               phoneResult.innerHTML = 'transaction successful' + '<br>' + 'your account balance is ' + z[i].amount;
+               let bal = Number(localStorage.balance) || 0;
+               localStorage.balance = Number(z[i].amount)+ bal;
+               phoneResult.innerHTML = 'transaction successful' + '<br>' + 'your account balance is ' + (Number(z[i].amount)+ bal);
                z[i].used = true;
+               console.log(z);
                break;
           } else {
                phoneResult.innerHTML = 'INVALID CARD';
