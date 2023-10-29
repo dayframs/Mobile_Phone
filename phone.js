@@ -54,12 +54,18 @@ function submit() {
      result.innerHTML = '';
      for (let i = 0; i < z.length; i++) {
           if (netw.value == z[i].network && refnumber.value == z[i].refNum) {
-               let bal = Number(localStorage.balance) || 0;
-               localStorage.balance = Number(z[i].amount)+ bal;
-               phoneResult.innerHTML = 'transaction successful' + '<br>' + 'your account balance is ' + (Number(z[i].amount)+ bal);
-               z[i].used = true;
-               console.log(z);
-               break;
+               if (z[i].used) {
+                    phoneResult.innerHTML = 'card already been used by you!';
+                    break;
+               } else {
+                    let bal = Number(localStorage.balance) || 0;
+                    localStorage.balance = Number(z[i].amount) + bal;
+                    phoneResult.innerHTML = 'transaction successful' + '<br>' + 'your account balance is ' + (Number(z[i].amount) + bal);
+                    z[i].used = true;
+                    console.log(z);
+                    localStorage.myData = JSON.stringify(z);
+                    break;
+               }
           } else {
                phoneResult.innerHTML = 'INVALID CARD';
           }
